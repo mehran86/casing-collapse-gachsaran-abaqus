@@ -1,0 +1,75 @@
+*Heading
+** restart of Q3_SH_V90W_L30: continue step 6 (Shut) from increment 1797, then Prod2
+*Restart, read, step=6, inc=1797, end step
+** ----------------------------------------------------------------
+** 
+** STEP: Prod2
+** 
+*Step, name=Prod2, nlgeom=YES, inc=100000, unsymm=YES
+*Visco, cetol=0.00015
+100., 6.15373e+08, 1e-08, 2.592e+06
+*Controls, parameters=time incrementation
+, , , , , , , 12
+** 
+** LOADS
+** 
+** Name: P_ANN   Type: Pressure
+*Dsload
+WELL-1.CSG_IN, P, 17.8751
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=20, overlay
+** 
+** FIELD OUTPUT: F-CREEP-Prod2
+** 
+*Output, field, number interval=10
+*Element Output, directions=YES
+CEEQ, 
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, number interval=15
+*Node Output
+U, 
+*Element Output, directions=YES
+PEEQ, S
+*Contact Output
+CDISP, CSTRESS
+** 
+** HISTORY OUTPUT: H_ST_Z0000
+** 
+*Output, history
+*Node Output, nset=WELL-1.ST_Z0000
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0100
+** 
+*Node Output, nset=WELL-1.ST_Z0100
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0150
+** 
+*Node Output, nset=WELL-1.ST_Z0150
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0170
+** 
+*Node Output, nset=WELL-1.ST_Z0170
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0250
+** 
+*Node Output, nset=WELL-1.ST_Z0250
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0450
+** 
+*Node Output, nset=WELL-1.ST_Z0450
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0750
+** 
+*Node Output, nset=WELL-1.ST_Z0750
+U1, U2, U3
+*End Step

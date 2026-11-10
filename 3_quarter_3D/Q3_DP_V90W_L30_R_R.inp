@@ -1,0 +1,156 @@
+*Heading
+** restart of Q3_DP_V90W_L30_R: continue step 5 (Prod1) from increment 1320, then Shut, Prod2
+*Restart, read, step=5, inc=1320
+** ----------------------------------------------------------------
+** 
+** STEP: Shut
+** 
+*Step, name=Shut, nlgeom=YES, inc=100000, unsymm=YES
+*Visco, cetol=0.00015, stabilize=0.0002, allsdtol=0.05, continue=NO
+100., 1.57788e+07, 1e-08, 1.57788e+06
+*Controls, parameters=line search
+5, 4., 0.25, 0.25, 0.1
+*Controls, parameters=time incrementation
+, , , , , , , 12
+** 
+** LOADS
+** 
+** Name: P_ANN   Type: Pressure
+*Dsload
+WELL-1.CSG_IN, P, 29.1809
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=20, overlay
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, number interval=10
+*Node Output
+U, 
+*Element Output, directions=YES
+PEEQ, S
+*Contact Output
+CDISP, CSTRESS
+** 
+** FIELD OUTPUT: F-CREEP-Shut
+** 
+*Element Output, directions=YES
+CEEQ, 
+** 
+** HISTORY OUTPUT: H_ST_Z0000
+** 
+*Output, history
+*Node Output, nset=WELL-1.ST_Z0000
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0100
+** 
+*Node Output, nset=WELL-1.ST_Z0100
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0150
+** 
+*Node Output, nset=WELL-1.ST_Z0150
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0170
+** 
+*Node Output, nset=WELL-1.ST_Z0170
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0250
+** 
+*Node Output, nset=WELL-1.ST_Z0250
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0450
+** 
+*Node Output, nset=WELL-1.ST_Z0450
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0750
+** 
+*Node Output, nset=WELL-1.ST_Z0750
+U1, U2, U3
+*Output, history, frequency=1
+*Energy Output
+ALLSD, ALLIE, ALLCD, ALLPD, ALLSE, ALLWK
+*End Step
+** ----------------------------------------------------------------
+** 
+** STEP: Prod2
+** 
+*Step, name=Prod2, nlgeom=YES, inc=100000, unsymm=YES
+*Visco, cetol=0.00015, stabilize=0.0002, allsdtol=0.05, continue=NO
+100., 6.15373e+08, 1e-08, 2.592e+06
+*Controls, parameters=line search
+5, 4., 0.25, 0.25, 0.1
+*Controls, parameters=time incrementation
+, , , , , , , 12
+** 
+** LOADS
+** 
+** Name: P_ANN   Type: Pressure
+*Dsload
+WELL-1.CSG_IN, P, 38.9079
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=20, overlay
+** 
+** FIELD OUTPUT: F-CREEP-Prod2
+** 
+*Output, field, number interval=10
+*Element Output, directions=YES
+CEEQ, 
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, number interval=15
+*Node Output
+U, 
+*Element Output, directions=YES
+PEEQ, S
+*Contact Output
+CDISP, CSTRESS
+** 
+** HISTORY OUTPUT: H_ST_Z0000
+** 
+*Output, history
+*Node Output, nset=WELL-1.ST_Z0000
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0100
+** 
+*Node Output, nset=WELL-1.ST_Z0100
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0150
+** 
+*Node Output, nset=WELL-1.ST_Z0150
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0170
+** 
+*Node Output, nset=WELL-1.ST_Z0170
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0250
+** 
+*Node Output, nset=WELL-1.ST_Z0250
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0450
+** 
+*Node Output, nset=WELL-1.ST_Z0450
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_Z0750
+** 
+*Node Output, nset=WELL-1.ST_Z0750
+U1, U2, U3
+*Output, history, frequency=1
+*Energy Output
+ALLSD, ALLIE, ALLCD, ALLPD, ALLSE, ALLWK
+*End Step

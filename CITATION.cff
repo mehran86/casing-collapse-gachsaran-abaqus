@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use these model files, please cite the associated article and this dataset."
+title: "Abaqus input files: casing collapse in Gachsaran salt (Sirri-E and Marun)"
+type: dataset
+authors:
+  - family-names: Kalhori
+    given-names: Mehran
+    affiliation: "Petroleum Geology Research Group, Research Institute of Applied Sciences (ACECR), Tehran, Iran"
+    orcid: "https://orcid.org/0000-0002-5319-6161"
+version: "1.0.0"
+date-released: "2026-11-10"
+license: CC-BY-4.0
+keywords:
+  - casing collapse
+  - salt creep
+  - Gachsaran Formation
+  - cement sheath
+  - Abaqus
+  - finite element

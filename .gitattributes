@@ -1,0 +1,3 @@
+# keep Abaqus decks byte-identical (no CRLF/LF conversion) so checksums stay valid
+*.inp -text linguist-detectable=false
+*.csv -text

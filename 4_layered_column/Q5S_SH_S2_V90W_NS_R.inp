@@ -1,0 +1,259 @@
+*Heading
+** restart of Q5S_SH_S2_V90W_NS: continue step 5 (Prod1) from increment 160, then Shut, Prod2
+*Restart, read, step=5, inc=160
+** ----------------------------------------------------------------
+** 
+** STEP: Shut
+** 
+*Step, name=Shut, nlgeom=YES, inc=100000, unsymm=YES
+*Visco, cetol=0.00015, stabilize=0.0002, allsdtol=0.05, continue=NO
+100., 1.57788e+07, 1e-08, 1.57788e+06
+*Controls, parameters=line search
+5, 4., 0.25, 0.25, 0.1
+*Controls, parameters=field, field=displacement
+0.005, 1.0
+*Controls, parameters=time incrementation
+, , , , , , , 12
+** 
+** LOADS
+** 
+** Name: P_ANN   Type: Pressure
+*Dsload
+LINER-1.CSG_IN, HP, 12.2644, 0., -1450.
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=20, overlay
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, number interval=10
+*Node Output
+U, 
+*Element Output, directions=YES
+PEEQ, S
+*Contact Output
+CDISP, CSTRESS
+** 
+** FIELD OUTPUT: F-CREEP-Shut
+** 
+*Element Output, directions=YES
+CEEQ, 
+** 
+** HISTORY OUTPUT: H_ST_1160
+** 
+*Output, history
+*Node Output, nset=LINER-1.ST_1160
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1170
+** 
+*Node Output, nset=LINER-1.ST_1170
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1183
+** 
+*Node Output, nset=LINER-1.ST_1183
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1195
+** 
+*Node Output, nset=LINER-1.ST_1195
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1213
+** 
+*Node Output, nset=LINER-1.ST_1213
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1230
+** 
+*Node Output, nset=LINER-1.ST_1230
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1240
+** 
+*Node Output, nset=LINER-1.ST_1240
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1250
+** 
+*Node Output, nset=LINER-1.ST_1250
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1270
+** 
+*Node Output, nset=LINER-1.ST_1270
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1290
+** 
+*Node Output, nset=LINER-1.ST_1290
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1325
+** 
+*Node Output, nset=LINER-1.ST_1325
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1360
+** 
+*Node Output, nset=LINER-1.ST_1360
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1373
+** 
+*Node Output, nset=LINER-1.ST_1373
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1385
+** 
+*Node Output, nset=LINER-1.ST_1385
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1403
+** 
+*Node Output, nset=LINER-1.ST_1403
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1420
+** 
+*Node Output, nset=LINER-1.ST_1420
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1585
+** 
+*Node Output, nset=LINER-1.ST_1585
+U1, U2, U3
+*Output, history, frequency=1
+*Energy Output
+ALLSD, ALLIE, ALLCD, ALLPD, ALLSE, ALLWK
+*End Step
+** ----------------------------------------------------------------
+** 
+** STEP: Prod2
+** 
+*Step, name=Prod2, nlgeom=YES, inc=100000, unsymm=YES
+*Visco, cetol=0.00015, stabilize=0.0002, allsdtol=0.05, continue=NO
+100., 6.15373e+08, 1e-08, 2.592e+06
+*Controls, parameters=line search
+5, 4., 0.25, 0.25, 0.1
+*Controls, parameters=field, field=displacement
+0.005, 1.0
+*Controls, parameters=time incrementation
+, , , , , , , 12
+** 
+** LOADS
+** 
+** Name: P_ANN   Type: Pressure
+*Dsload
+LINER-1.CSG_IN, HP, 16.3526, 0., -1450.
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=20, overlay
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, number interval=10
+*Node Output
+U, 
+*Element Output, directions=YES
+PEEQ, S
+*Contact Output
+CDISP, CSTRESS
+** 
+** FIELD OUTPUT: F-CREEP-Prod2
+** 
+*Element Output, directions=YES
+CEEQ, 
+** 
+** HISTORY OUTPUT: H_ST_1160
+** 
+*Output, history
+*Node Output, nset=LINER-1.ST_1160
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1170
+** 
+*Node Output, nset=LINER-1.ST_1170
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1183
+** 
+*Node Output, nset=LINER-1.ST_1183
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1195
+** 
+*Node Output, nset=LINER-1.ST_1195
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1213
+** 
+*Node Output, nset=LINER-1.ST_1213
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1230
+** 
+*Node Output, nset=LINER-1.ST_1230
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1240
+** 
+*Node Output, nset=LINER-1.ST_1240
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1250
+** 
+*Node Output, nset=LINER-1.ST_1250
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1270
+** 
+*Node Output, nset=LINER-1.ST_1270
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1290
+** 
+*Node Output, nset=LINER-1.ST_1290
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1325
+** 
+*Node Output, nset=LINER-1.ST_1325
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1360
+** 
+*Node Output, nset=LINER-1.ST_1360
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1373
+** 
+*Node Output, nset=LINER-1.ST_1373
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1385
+** 
+*Node Output, nset=LINER-1.ST_1385
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1403
+** 
+*Node Output, nset=LINER-1.ST_1403
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1420
+** 
+*Node Output, nset=LINER-1.ST_1420
+U1, U2, U3
+** 
+** HISTORY OUTPUT: H_ST_1585
+** 
+*Node Output, nset=LINER-1.ST_1585
+U1, U2, U3
+*Output, history, frequency=1
+*Energy Output
+ALLSD, ALLIE, ALLCD, ALLPD, ALLSE, ALLWK
+*End Step

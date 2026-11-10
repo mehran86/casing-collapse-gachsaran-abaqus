@@ -1,0 +1,23 @@
+# Abaqus output and scratch files
+*.odb
+*.res
+*.mdl
+*.stt
+*.prt
+*.sim
+*.sta
+*.msg
+*.dat
+*.com
+*.log
+*.lck
+*.ipm
+*.023
+*.abq
+*.pac
+*.sel
+*.fil
+*.rpy*
+*.cae
+*.jnl
+*.zip
