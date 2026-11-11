@@ -18,14 +18,15 @@ This repository contains every Abaqus/Standard input deck (`.inp`) used to produ
 | `6_delayed_defects_SirriE/` | Late void (T1) and fluid loss (T2) triggered at 5/10/20 yr (2D) and 10 yr (3D) | 8 | Fig. 13; Table 7 |
 | `7_sealed_void/` | 2D sealed (undrained) void: fluid bulk modulus 2200/220/70 MPa in both fields; sealed void that loses its pressure at 10 yr | 8 | Fig. 15; Table 8 |
 | `8_sensitivity/` | 2D constant-pressure water void: depth 1500–3000 m with Marun gradients (`DZ`), exchanged creep coefficients (`TSH`, `TDP`), casing grade (`P110`, `Q125`), void extent 30–270° (`A030`…`A270`) | 18 | Fig. 16 |
+| `9_two_mechanism_creep/` | 2D base law extended with a linear low-stress branch (rate = A q³ + B q), B = 0, 1e-12, 1e-11 MPa⁻¹ s⁻¹; each deck has its user subroutine `.for` of the same name | 7 | Table 9 |
 
-`scripts/` holds the two Python scripts that generate the sealed-void decks from the base decks (`make_seal.py`, `make_leak.py`) and the sensitivity decks (`make_sweep.py`).
+`scripts/` holds the two Python scripts that generate the sealed-void decks from the base decks (`make_seal.py`, `make_leak.py`) the sensitivity decks (`make_sweep.py`) and the two-mechanism creep decks (`make_dm.py`).
 
 `file_list.csv` lists every file with its group, size and SHA-256 checksum. `SHA256SUMS.txt` contains the same checksums in `sha256sum` format.
 
 ## Software and units
 
-* Abaqus/Standard 2022 (decks generated with Abaqus/CAE 2022 and then edited by script). No user subroutines are required.
+* Abaqus/Standard 2022 (decks generated with Abaqus/CAE 2022 and then edited by script). No user subroutines are required, except for the decks in `9_two_mechanism_creep/` (`abaqus job=NAME user=NAME.for`; Intel Fortran).
 * Consistent units: **N, mm, MPa, s** (time in seconds; 1 yr = 3.15576e7 s).
 * Salt creep: `*Creep, law=TIME` (power law, n = 3). Cement: Mohr–Coulomb with tension cut-off (4.83 MPa). Casing: elastic–plastic steel, E = 206 GPa.
 * All models start from an initial casing ovality of 0.3 % (applied by nodal perturbation; see deck header).
