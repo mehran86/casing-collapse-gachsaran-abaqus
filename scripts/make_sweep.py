@@ -16,15 +16,17 @@ def ids(exact):
     i = idx(exact); return [int(x) for l in L[i+1:end(i)] for x in l.split(',') if x.strip()]
 def fmt(v): return [', '.join('%5d' % x for x in v[k:k+16]) for k in range(0, len(v), 16)]
 note = ''
-if mode == 'depth':
-    z = float(val); s = z / 3450.0; T = 0.0216 * z + 23.8 + 273.15; A = 2.88e-8 * math.exp(-22600.0 / (8.314 * T))
+if mode in ('depth', 'depthSH'):
+    z = float(val)
+    if mode == 'depth': s = z / 3450.0; T = 0.0216 * z + 23.8 + 273.15
+    else: s = z / 1585.0; T = 30.0 + 0.025 * z + 273.15; A = 2.88e-8 * math.exp(-22600.0 / (8.314 * T))
     for k, l in enumerate(L):
         p = [x.strip() for x in l.split(',')]
         if 'TRVEC' in l and l.startswith('WELL-1.'): p[2] = '%.6g' % (float(p[2]) * s); L[k] = ', '.join(p)
         elif l.startswith('WELL-1.') and len(p) == 3 and p[1] == 'P': L[k] = '%s, P, %.6g' % (p[0], float(p[2]) * s)
         elif l.startswith('WELL-1.SALT, -'): L[k] = 'WELL-1.SALT, ' + ', '.join('%.6g' % (float(x) * s) for x in p[1:4]) + ', 0., '
     i = idx('*Creep, law=TIME'); L[i+1] = ' %.6g,3.,0.' % A
-    note = 'DEPTH VARIANT: z = %g m, loads scaled by %.5f from 3450 m, T = %.1f C, creep A = %.5g' % (z, s, T - 273.15, A)
+    note = 'DEPTH VARIANT (%s): z = %g m, loads scaled by %.5f from %s m, T = %.1f C, creep A = %.5g' % (mode, z, s, '3450' if mode == 'depth' else '1585', T - 273.15, A)
 elif mode == 'creepA':
     i = idx('*Creep, law=TIME'); old = L[i+1]; L[i+1] = ' %s,3.,0.' % val; note = 'CREEP-COEFFICIENT VARIANT: A = %s (was %s)' % (val, old.strip())
 elif mode == 'grade':
