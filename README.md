@@ -16,6 +16,9 @@ This repository contains every Abaqus/Standard input deck (`.inp`) used to produ
 | `4_layered_column/` | 600 m layered column at Sirri-E (salt/anhydrite/marl, frictionless interfaces), S0 and S2 | 3 | Fig. 12 |
 | `5_delayed_defects_Marun/` | Defect activated 5/10/20 yr after installation (2D) and 10 yr (3D, 10 m void) | 4 | Fig. 13; Table 7 |
 | `6_delayed_defects_SirriE/` | Late void (T1) and fluid loss (T2) triggered at 5/10/20 yr (2D) and 10 yr (3D) | 8 | Fig. 13; Table 7 |
+| `7_sealed_void/` | 2D sealed (undrained) void: fluid bulk modulus 2200/220/70 MPa in both fields; sealed void that loses its pressure at 10 yr | 8 | Fig. 15; Table 8 |
+
+`scripts/` holds the two Python scripts that generate the sealed-void decks from the base decks (`make_seal.py`, `make_leak.py`).
 
 `file_list.csv` lists every file with its group, size and SHA-256 checksum. `SHA256SUMS.txt` contains the same checksums in `sha256sum` format.
 
@@ -49,6 +52,8 @@ Each deck begins with comment lines (`**`) recording the scripted modifications 
 | `PB` | Pressure (instead of pinned) outer boundary |
 | `DTH`, `DTD` | Creep tolerance (CETOL) halved / doubled |
 | `_R` (2D S2 models) | Borehole pre-filled with soft elements (E = 1 MPa, removed at installation) to equilibrate the anisotropic initial stress |
+| `FK2200`, `FK220`, `FK70` | Sealed void: the void sector is filled at installation with a fluid-like solid of bulk modulus 2200 / 220 / 70 MPa (shear modulus 1 MPa, hybrid elements); the initial void pressure stays as a surface load, so void pressure = initial pressure + PRESS of the filler |
+| `LK10` | Sealed void that loses its pressure 10 yr after installation (filler removed in step `Trigger`) |
 | `T1_UNSYMM`, `T4DP_NOTC` | Solver checks: default time incrementation; Marun model without the cement tension cut-off |
 
 ## Running the models
