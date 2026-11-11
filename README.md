@@ -17,8 +17,9 @@ This repository contains every Abaqus/Standard input deck (`.inp`) used to produ
 | `5_delayed_defects_Marun/` | Defect activated 5/10/20 yr after installation (2D) and 10 yr (3D, 10 m void) | 4 | Fig. 13; Table 7 |
 | `6_delayed_defects_SirriE/` | Late void (T1) and fluid loss (T2) triggered at 5/10/20 yr (2D) and 10 yr (3D) | 8 | Fig. 13; Table 7 |
 | `7_sealed_void/` | 2D sealed (undrained) void: fluid bulk modulus 2200/220/70 MPa in both fields; sealed void that loses its pressure at 10 yr | 8 | Fig. 15; Table 8 |
+| `8_sensitivity/` | 2D constant-pressure water void: depth 1500–3000 m with Marun gradients (`DZ`), exchanged creep coefficients (`TSH`, `TDP`), casing grade (`P110`, `Q125`), void extent 30–270° (`A030`…`A270`) | 18 | Fig. 16 |
 
-`scripts/` holds the two Python scripts that generate the sealed-void decks from the base decks (`make_seal.py`, `make_leak.py`).
+`scripts/` holds the two Python scripts that generate the sealed-void decks from the base decks (`make_seal.py`, `make_leak.py`) and the sensitivity decks (`make_sweep.py`).
 
 `file_list.csv` lists every file with its group, size and SHA-256 checksum. `SHA256SUMS.txt` contains the same checksums in `sha256sum` format.
 
